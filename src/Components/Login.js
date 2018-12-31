@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Button, ToastAndroid, TextInput, Image} from 'react-native';
 
-type Props = {};
-export default class App extends Component<Props> {
-    constructor(props) {
-        super(props);
+import {
+    Text,
+    View,
+    Image,
+    TextInput,
+    Button, 
+    StyleSheet, 
+    ToastAndroid
+} from 'react-native';
 
-    }
-
-    render() {
+export default class Home extends Component {
+    render() { 
         return (
             <View style={styles.container}>
                 <View style={styles.login}>
@@ -25,9 +28,9 @@ export default class App extends Component<Props> {
                     <Button onPress={onClickListiner} title={'Giriş Yap'}/>
                 </View>
                 <View style={styles.footer}>
-                    <Text style={styles.footerText}>Kaydol </Text>
+                    <Button onPress={btnRegister} color={'#369'} title={'Kaydol'}/>
                     <Text style={styles.footerText}>ya da </Text>
-                    <Text style={styles.footerText}>Dene </Text>
+                    <Button onPress={btnTry} color={'#123'} title={'Dene'}/>
                 </View>
             </View>
         );
@@ -35,13 +38,21 @@ export default class App extends Component<Props> {
 }
 
 const onClickListiner = () => {
-    ToastAndroid.show('Toast Mesajı aktif', ToastAndroid.LONG);
+    ToastAndroid.show('Giriş Mesajı', ToastAndroid.SHORT);
+};
+
+const btnRegister = () => {
+    ToastAndroid.show('Kayıt Ekranını Açacak', ToastAndroid.SHORT);
+};
+
+const btnTry = () => {
+    ToastAndroid.show('Uygulamanın Ekranını Açacak', ToastAndroid.SHORT);
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     login: {
         display: 'flex',
